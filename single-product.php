@@ -42,7 +42,7 @@
                         'value' => '"' . get_the_ID() . '"'
                     )
                 ));
-                if ($homepagePatterns) {
+                if ($homepagePatterns->have_posts()) {
                     echo '<hr class="section-break">';
                     echo '<h2 class="headline headline--medium">Faça você mesmo:</h2>';
                 
