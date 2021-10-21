@@ -41,7 +41,7 @@ function tico_files() {
     // wp_enqueue_style('tico_main_styles', get_stylesheet_uri());
     
     // Google Maps script
-    wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=AIzaSyAtPvu9O0yTyQkJ9UFS_jRgDnZD5ifeBU8', NULL, '1.0', true);
+    wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=yourGoogleKey', NULL, '1.0', true);
     // Main script
     wp_enqueue_script('main-tico-js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
     // font-family
