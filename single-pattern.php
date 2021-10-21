@@ -2,23 +2,16 @@
     get_header();
 
     while(have_posts()) {
-        the_post(); ?>
+        the_post(); 
+        pageBanner();
+        ?>
 
-        <div class="page-banner">
-            <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('images/ocean.jpg') ?>)"></div>
-            <div class="page-banner__content container container--narrow">
-                <h1 class="page-banner__title"><?php the_title(); ?></h1>
-                <div class="page-banner__intro">
-                <p>DONT'T FORGET TO REPLACE ME LATER</p>
-                </div>
-            </div>
-        </div>
         <div class="container container--narrow page-section">
             <div class="metabox metabox--position-up metabox--with-home-link">
                 <p><a class="metabox__blog-home-link" href="<?php echo get_post_type_archive_link('pattern'); ?>"><i class="fa fa-home" aria-hidden="true"></i> Patterns Home</a> <span class="metabox__main">Posted by <?php the_author_posts_link(); ?> on <?php the_time('j/n/y'); ?> in <?php echo get_the_category_list(', '); ?></span></p>
             </div>
-            <div class="generic-content" style="margin-top: 70px"><?php 
-                the_content(); 
+            <div class="generic-content" style="margin-top: 30px"><?php 
+                the_field('main_body_content'); 
                 $image = get_field('image');
                 if( !empty( $image ) ): ?>
                     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
@@ -39,6 +32,27 @@
                     echo '<ul class="link-list min-list">';
                     foreach($relatedProducts as $product) { ?>
                         <li><a href="<?php echo get_the_permalink($product); ?>"><?php echo get_the_title($product); ?></a></li>
+                    <?php }
+                    echo '</ul>';
+                }
+               
+            ?>
+            <?php 
+                $relatedDesigner = get_field('related_designer');
+                // print_r($relatedDesigner[0]);
+                // print_r($relatedDesigner[0]->ID);
+                if ($relatedDesigner) { ?>
+                    <?php
+                    echo '<hr class="section-break">';
+                    echo '<h2 class="headline headline--medium">Developed by:</h2>';
+                    echo '<ul class="professor-cards">';
+                    foreach($relatedDesigner as $designer) { ?>
+                        <li class="professor-card__list-item">
+                            <a class="professor-card" href="<?php echo get_the_permalink($designer); ?>">
+                                <img class="professor-card__image" src="<?php echo get_the_post_thumbnail_url($designer->ID, 'designerLandscape'); ?>">
+                                <span class="professor-card__name"><?php echo get_the_title($designer); ?></span>
+                            </a>
+                        </li>
                     <?php }
                     echo '</ul>';
                 }

@@ -1,0 +1,20 @@
+<div class="post-item" style="padding-top: 2rem">
+    <h2 class="headline headline--medium headline--post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+
+    <div class="metabox">
+        <p>Posted by <?php the_author_posts_link(); ?> on <?php the_time('j/n/y'); ?> in <?php echo get_the_category_list(', '); ?></p>
+    </div>
+
+    <div class="generic-content">
+        <?php 
+        if(has_excerpt()) {
+            the_excerpt();
+        } elseif (get_field('main_body_content')) {
+            echo "<p>" . wp_trim_words(get_field('main_body_content'), 18) . "</p>";
+        } else {
+            echo "<p>" . wp_trim_words(get_the_content(), 18) . "</p>";
+        }
+        ?>
+        <p><a class="btn btn--blue" href="<?php the_permalink(); ?>">Buy Now &raquo;</a></p>
+    </div>
+</div>

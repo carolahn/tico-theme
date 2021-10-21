@@ -1,15 +1,10 @@
 <?php
-get_header(); ?>
-
-<div class="page-banner">
-  <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('images/ocean.jpg') ?>)"></div>
-  <div class="page-banner__content container container--narrow">
-    <h1 class="page-banner__title">Welcome to our blog!</h1>
-    <div class="page-banner__intro">
-      <p>Keep up with our latest news.</p>
-    </div>
-  </div>
-</div>
+get_header(); 
+pageBanner(array(
+  'title' => 'Welcome to our blog!',
+  'subtitle' => 'Keep up with our latest news.'
+));
+?>
 
 <div class="container container--narrow page-section">
   <?php
@@ -25,11 +20,15 @@ get_header(); ?>
         </div>
 
         <div class="generic-content">
-          <!-- all post content --> 
-          <!-- <?php the_content(); ?> -->
-
-          <!-- just a post resume --> 
-          <?php the_excerpt(); ?>
+          <?php 
+            if(has_excerpt()) {
+              the_excerpt();
+            } elseif (the_field('main_body_content')) {
+              echo "<p>" . wp_trim_words(get_field('main_body_content'), 18) . "</p>";
+            } else {
+              echo "<p>" . wp_trim_words(get_the_content(), 18) . "</p>";
+            }
+          ?>
           <p><a class="btn btn--blue" href="<?php the_permalink(); ?>">Continue reading &raquo;</a></p>
         </div>
       </div>
