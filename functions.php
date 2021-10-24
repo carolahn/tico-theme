@@ -82,6 +82,7 @@ function tico_features() {
     add_image_size('designerLandscape', 400, 260, true);
     add_image_size('designerPortrait', 480, 650, true);
     add_image_size('pageBanner', 1500, 350, true);
+    add_image_size('slideImage', 1900, 525, true);
 }
 
 add_action('pre_get_posts', 'tico_adjust_queries');

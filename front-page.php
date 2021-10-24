@@ -67,7 +67,8 @@
       </div>
     </div>
 
-    <div class="hero-slider">
+    <!-- Slider original do curso -->
+    <!-- <div class="hero-slider">
       <div data-glide-el="track" class="glide__track">
         <div class="glide__slides">
           <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('images/bus.jpg') ?>)">
@@ -97,6 +98,38 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="slider__bullets glide__bullets" data-glide-el="controls[nav]"></div>
+      </div>
+    </div> -->
+
+    <!-- Challenge Dynamic Slider -->
+    <div class="hero-slider">
+      <div data-glide-el="track" class="glide__track"> 
+        <div class="glide__slides">
+           <?php
+            $homepageSlideshow = new WP_Query(array(
+              'posts_per_page' => -1,
+              'post_type' => 'slide'
+            ));
+ 
+            while($homepageSlideshow->have_posts()) {
+              $homepageSlideshow->the_post(); ?>
+              
+              <div class="hero-slider__slide" style="background-image: url(<?php the_field('slide_image'); ?>);">
+                <div class="hero-slider__interior container">
+                  <div class="hero-slider__overlay">
+                    <h2 class="headline headline--medium t-center"><?php the_field('slide_title'); ?></h2>
+                    <p class="t-center"><?php the_field('slide_subtitle'); ?></p>
+                    <p class="t-center no-margin"><a href="<?php the_field('slide_link_value'); ?>" class="btn btn--blue"><?php the_field('slide_link_text'); ?></a></p>
+                  </div>
+                </div>
+              </div>
+ 
+            <?php }
+ 
+          ?> 
+ 
         </div>
         <div class="slider__bullets glide__bullets" data-glide-el="controls[nav]"></div>
       </div>
