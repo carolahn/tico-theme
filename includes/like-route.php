@@ -39,10 +39,10 @@ function createLike($data) {
                 )
             ));
         } else {
-            die("Invalid professor id");
+            die("Invalid designer id");
         }
     } else {
-        die("only logged in users can create a like.");
+        die("Only logged in users can create a like.");
     }
 }
 

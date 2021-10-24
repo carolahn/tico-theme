@@ -9,7 +9,7 @@
     <header class="site-header">
       <div class="container">
         <h1 class="school-logo-text float-left">
-          <a href="<?php echo site_url(); ?>"><strong>Fictional</strong> University</a>
+          <a href="<?php echo site_url(); ?>"><strong>Tico</strong> Croche</a>
         </h1>
         <!-- mobile layout -->
         <a href="<?php echo esc_url(site_url('/search')); ?>" class="js-search-trigger site-header__search-trigger"><i class="fa fa-search" aria-hidden="true"></i></a>

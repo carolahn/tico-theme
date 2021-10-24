@@ -5,11 +5,11 @@
       <div class="page-banner__content container t-center c-white">
         <h1 class="headline headline--large">Welcome!</h1>
         <h2 class="headline headline--medium">We think you&rsquo;ll like it here.</h2>
-        <h3 class="headline headline--small">Why don&rsquo;t you check out the <strong>major</strong> you&rsquo;re interested in?</h3>
+        <h3 class="headline headline--small">Why don&rsquo;t you check out the <strong>amigurumi</strong> you&rsquo;re interested in?</h3>
         <a href="<?php echo get_post_type_archive_link('product'); ?>" class="btn btn--large btn--blue">Shop now!!</a>
       </div>
     </div>
-    <input type="text" placeholder="Insira">
+    <!-- <input type="text" placeholder="Insira"> -->
 
     <div class="full-width-split group">
       <div class="full-width-split__one">
@@ -25,7 +25,7 @@
                 ));
                 while ($homepagePatterns->have_posts()) {
                     $homepagePatterns->the_post();
-                    get_template_part('template-parts/content', 'event');
+                    get_template_part('template-parts/content', 'pattern');
                 }
             ?>
 

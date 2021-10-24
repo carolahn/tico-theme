@@ -7,9 +7,11 @@
         <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
         <p>
             <?php if(has_excerpt()) {
-                echo get_the_excerpt();
+                the_excerpt();
+            } elseif (get_field('main_body_content')) {
+                echo "<span>" . wp_trim_words(get_field('main_body_content'), 18) . "</span>";
             } else {
-                echo wp_trim_words(get_the_content(), 18);
+                echo "<span>" . wp_trim_words(get_the_content(), 18) . "</span>";
             } ?>
             <a href="<?php the_permalink(); ?>" class="nu gray"> Go to pattern</a>
         </p>
