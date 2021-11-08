@@ -1,5 +1,12 @@
 <?php
 
+add_filter('query_vars', 'ticoQueryVars');
+function ticoQueryVars($vars) {
+    $vars[] = 'skyColor';
+    $vars[] = 'grassColor';
+    return $vars;
+}
+
 require get_theme_file_path('/includes/search-route.php');
 require get_theme_file_path('/includes/like-route.php');
 

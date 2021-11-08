@@ -48,6 +48,7 @@
                             <span class="like-count"><?php echo $likeCount->found_posts; ?></span>
                         </span>
                         <?php the_field('main_body_content'); ?>
+                        <?php the_content(); ?>
                     </div>
                 </div>
             </div>
